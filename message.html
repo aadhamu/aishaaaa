@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Message for Aisha</title>
+</head>
+<body style="margin: 0; font-family: 'Arial', sans-serif; background-color: black; color: white; overflow-x: hidden;">
+
+  <!-- Glowing Heart Animation -->
+  <div style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 0; pointer-events: none;">
+    <div style="width: 150px; height: 150px; background: radial-gradient(circle, rgba(255, 0, 102, 0.8), transparent); border-radius: 50%; animation: pulse 2s infinite;"></div>
+  </div>
+
+  <!-- Message Section -->
+  <section style="padding: 50px 20px; background: linear-gradient(to bottom, rgba(255, 0, 102, 0.2), rgba(0, 0, 0, 0.8)); min-height: 90vh; z-index: 1; display: flex; align-items: center;">
+    <div style="width: 90%; max-width: 700px; margin: 0 auto; text-align: center; animation: fadeIn 1.5s;">
+      <h2 style="font-size: 36px; color: #ff66b2; margin-bottom: 20px; text-shadow: 0 0 15px rgba(255, 102, 178, 0.8);">
+        A Message From My Heart
+      </h2>
+      <p style="font-size: 18px; line-height: 1.8; margin-bottom: 40px; text-align: left; color: rgba(255, 255, 255, 0.9);">
+        Hi Aisha,
+        <br><br>
+        Not long ago I met you, but I can confidently say you are one of the best, if not the best soul I met this year. If I had the chance to take time backwards, I would do that just to meet you earlier.
+        <br><br>
+        You are very amazing, very hardworking, very lovely, very religious—you are just the very girl of my dreams.
+        <br><br>
+        Aisha, I want you to know that I would stand by your side. I am there for you more than you would ever need me. Your goals are my goals, and your dreams are my mission. Whatever you want to become, I’ll help you get there.
+        <br><br>
+        I’ll walk every path with you, no matter where it leads, because every step you take, I’ll be right beside you. What matters to you matters to me, and together, there’s nothing we can’t achieve.
+        <br><br>
+        Your battles are mine, and your victories are ours. With you, I believe in endless possibilities, and I’ll always be here to support you.
+      </p>
+    </div>
+  </section>
+
+  <!-- Back to Home Button -->
+  <div style="text-align: center; padding: 10px 0; background: rgba(255, 0, 102, 0.2); position: sticky; bottom: 0; z-index: 2;">
+    <button onclick="goBack()" 
+            style="background-color: #ff66b2; color: black; font-size: 16px; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; transition: all 0.3s ease;">
+      Back to Home
+    </button>
+  </div>
+
+  <!-- Inline JavaScript -->
+  <script>
+    // Back to Home Function
+    function goBack() {
+      window.location.href = "index.html"; // Update this path if needed
+    }
+
+    // Animation Keyframes
+    document.head.insertAdjacentHTML("beforeend", `
+      <style>
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(-20px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+          0% { transform: scale(1); opacity: 0.7; }
+          50% { transform: scale(1.2); opacity: 1; }
+          100% { transform: scale(1); opacity: 0.7; }
+        }
+
+        button:hover {
+          background-color: white;
+          color: #ff66b2;
+        }
+
+        body {
+          background-attachment: fixed;
+        }
+      </style>
+    `);
+  </script>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aisha's Dream Destinations Quiz</title>
+</head>
+<body style="margin: 0; font-family: Arial, sans-serif; background-color: black; color: white;">
+
+  <!-- Quiz Section -->
+  <section style="padding: 50px 20px; text-align: center; background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), black);">
+    <div style="max-width: 800px; margin: 0 auto;">
+      <h2 style="font-family: 'Dancing Script', cursive; font-size: 36px; color: white; margin-bottom: 20px;">
+        Aisha's Dream Destinations Quiz
+      </h2>
+      <p style="font-size: 18px; color: rgba(255, 255, 255, 0.8); margin-bottom: 30px;">
+        Identify these countries before the timer runs out!
+      </p>
+
+      <div id="quiz-container">
+        <!-- Quiz Question -->
+        <div id="quiz-card" style="margin-bottom: 30px; display: none;">
+          <img id="quiz-image" src="" alt="Country" style="width: 100%; border-radius: 10px; margin-bottom: 15px;">
+          <p id="question" style="font-size: 16px; margin-bottom: 15px;">What country is this?</p>
+          <div id="options" style="margin-bottom: 20px;">
+            <button class="option" style="margin: 5px; padding: 10px 15px; border: none; border-radius: 5px; background-color: #ffcc00; color: black; cursor: pointer;"></button>
+            <button class="option" style="margin: 5px; padding: 10px 15px; border: none; border-radius: 5px; background-color: #ffcc00; color: black; cursor: pointer;"></button>
+            <button class="option" style="margin: 5px; padding: 10px 15px; border: none; border-radius: 5px; background-color: #ffcc00; color: black; cursor: pointer;"></button>
+          </div>
+          <p id="timer" style="font-size: 18px; color: #ffcc00;">Time Left: <span id="time-left">5</span>s</p>
+        </div>
+
+        <!-- Final Score -->
+        <div id="score-container" style="display: none; text-align: center; padding: 20px; background-color: rgba(255, 255, 255, 0.1); border-radius: 10px;">
+          <h3 style="font-size: 24px; color: white;">Your Score</h3>
+          <p id="score" style="font-size: 18px; color: #ffcc00; margin: 15px 0;">0 / 5</p>
+          <button onclick="restartQuiz()" style="padding: 10px 15px; border: none; border-radius: 5px; background-color: #ffcc00; color: black; cursor: pointer;">Restart Quiz</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Back to Home Button -->
+  <div style="text-align: center; padding: 20px 0;">
+    <button onclick="goBack()" 
+            style="background-color: #ffcc00; color: black; font-size: 16px; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; transition: all 0.3s ease;">
+      Back to Home
+    </button>
+  </div>
+
+  <!-- Inline JavaScript -->
+  <script>
+    const questions = [
+      {
+        image: "images/qatar.webp",
+        correct: "Qatar",
+        options: ["Kuwait", "Saudi Arabia", "Qatar"]
+      },
+      {
+        image: "images/kuwait.webp",
+        correct: "Kuwait",
+        options: ["Rome", "Kuwait", "Paris"]
+      },
+      {
+        image: "images/paris.webp",
+        correct: "Paris",
+        options: ["Saudi Arabia", "Rome", "Paris"]
+      },
+      {
+        image: "images/saudi.webp",
+        correct: "Saudi Arabia",
+        options: ["Qatar", "Saudi Arabia", "Paris"]
+      },
+      {
+        image: "images/rome.webp",
+        correct: "Rome",
+        options: ["Kuwait", "Rome", "Paris"]
+      }
+    ];
+
+    let currentQuestion = 0;
+    let score = 0;
+    let timerInterval;
+
+    const quizCard = document.getElementById("quiz-card");
+    const quizImage = document.getElementById("quiz-image");
+    const questionText = document.getElementById("question");
+    const optionsContainer = document.getElementById("options");
+    const timerText = document.getElementById("time-left");
+    const scoreContainer = document.getElementById("score-container");
+    const scoreText = document.getElementById("score");
+
+    function startQuiz() {
+      currentQuestion = 0;
+      score = 0;
+      showQuestion();
+    }
+
+    function showQuestion() {
+      clearInterval(timerInterval);
+      if (currentQuestion < questions.length) {
+        const question = questions[currentQuestion];
+        quizImage.src = question.image;
+        questionText.textContent = "What country is this?";
+        optionsContainer.innerHTML = "";
+        question.options.forEach(option => {
+          const button = document.createElement("button");
+          button.textContent = option;
+          button.className = "option";
+          button.style.margin = "5px";
+          button.style.padding = "10px 15px";
+          button.style.border = "none";
+          button.style.borderRadius = "5px";
+          button.style.backgroundColor = "#ffcc00";
+          button.style.color = "black";
+          button.style.cursor = "pointer";
+          button.onclick = () => selectAnswer(option, question.correct);
+          optionsContainer.appendChild(button);
+        });
+        quizCard.style.display = "block";
+        startTimer();
+      } else {
+        showScore();
+      }
+    }
+
+    function startTimer() {
+      let timeLeft = 10;
+      timerText.textContent = timeLeft;
+      timerInterval = setInterval(() => {
+        timeLeft--;
+        timerText.textContent = timeLeft;
+        if (timeLeft <= 0) {
+          clearInterval(timerInterval);
+          currentQuestion++;
+          showQuestion();
+        }
+      }, 1000);
+    }
+
+    function selectAnswer(selected, correct) {
+      clearInterval(timerInterval);
+      if (selected === correct) score++;
+      currentQuestion++;
+      showQuestion();
+    }
+
+    function showScore() {
+      quizCard.style.display = "none";
+      scoreText.textContent = `${score} / ${questions.length}`;
+      scoreContainer.style.display = "block";
+    }
+
+    function restartQuiz() {
+      scoreContainer.style.display = "none";
+      startQuiz();
+    }
+
+    function goBack() {
+      window.location.href = "index.html"; // Update this path if needed
+    }
+
+    startQuiz();
+  </script>
+</body>
+</html>

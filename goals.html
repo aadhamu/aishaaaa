@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Goals</title>
+</head>
+<body style="margin: 0; font-family: Arial, sans-serif; background-color: black; color: white;">
+
+  <!-- Goals Section -->
+  <section style="padding: 50px 20px; background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), rgba(255, 255, 255, 0.1)); position: relative; min-height: 90vh;">
+    <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+      <h2 style="font-family: 'Dancing Script', cursive; font-size: 36px; color: #ffcc00; margin-bottom: 30px; animation: fadeIn 1.5s;">
+        Goals
+      </h2>
+
+      <div id="goalsAccordion" style="text-align: left;">
+        <!-- Goal 1 -->
+        <div style="margin-bottom: 20px; animation: fadeInUp 1s; border-left: 5px solid #ffcc00; padding-left: 15px;">
+          <h2 style="font-size: 20px; margin: 0; background-color: rgba(255, 204, 0, 0.8); padding: 10px; color: black; cursor: pointer; transition: all 0.3s ease;"
+              onclick="toggleAccordion('goalOne')">
+            Becoming a Better Muslim
+          </h2>
+          <div id="goalOne" style="background-color: rgba(255, 255, 255, 0.1); padding: 15px; display: none; border-radius: 5px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);">
+            <p style="margin: 0; color: rgba(255, 255, 255, 0.9);">
+              Discover inspirational quotes and teachings to strengthen your spiritual journey and daily habits.
+            </p>
+          </div>
+        </div>
+
+        <!-- Goal 2 -->
+        <div style="margin-bottom: 20px; animation: fadeInUp 1.2s; border-left: 5px solid #ffcc00; padding-left: 15px;">
+          <h2 style="font-size: 20px; margin: 0; background-color: rgba(255, 204, 0, 0.8); padding: 10px; color: black; cursor: pointer; transition: all 0.3s ease;"
+              onclick="toggleAccordion('goalTwo')">
+            High Court IT in Abuja
+          </h2>
+          <div id="goalTwo" style="background-color: rgba(255, 255, 255, 0.1); padding: 15px; display: none; border-radius: 5px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);">
+            <p style="margin: 0; color: rgba(255, 255, 255, 0.9);">
+              Plan milestones and preparation steps for your professional aspirations in Abuja's High Court IT sector.
+            </p>
+          </div>
+        </div>
+
+        <!-- Goal 3 -->
+        <div style="margin-bottom: 20px; animation: fadeInUp 1.4s; border-left: 5px solid #ffcc00; padding-left: 15px;">
+          <h2 style="font-size: 20px; margin: 0; background-color: rgba(255, 204, 0, 0.8); padding: 10px; color: black; cursor: pointer; transition: all 0.3s ease;"
+              onclick="toggleAccordion('goalThree')">
+            Starting a Clothing Brand
+          </h2>
+          <div id="goalThree" style="background-color: rgba(255, 255, 255, 0.1); padding: 15px; display: none; border-radius: 5px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);">
+            <p style="margin: 0; color: rgba(255, 255, 255, 0.9);">
+              Dive into creative ideas, entrepreneurial inspiration, and strategies for launching your clothing brand.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Back to Home Button -->
+    <div style="position: absolute; bottom: 20px; width: 100%; text-align: center;">
+      <button onclick="goBack()" 
+              style="background-color: #ffcc00; color: black; font-size: 16px; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; transition: all 0.3s ease;">
+        Back to Home
+      </button>
+    </div>
+  </section>
+
+  <!-- Inline JavaScript -->
+  <script>
+    // Toggle Accordion Sections
+    function toggleAccordion(id) {
+      const section = document.getElementById(id);
+      const isVisible = section.style.display === 'block';
+      section.style.display = isVisible ? 'none' : 'block';
+    }
+
+    // Back to Home Function
+    function goBack() {
+      window.location.href = "index.html"; // Change this to the correct relative path for the home page
+    }
+
+    // Animation Keyframes
+    document.head.insertAdjacentHTML("beforeend", `
+      <style>
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+          from { transform: translateY(20px); opacity: 0; }
+          to { transform: translateY(0); opacity: 1; }
+        }
+
+        button:hover {
+          background-color: white;
+          color: #ffcc00;
+        }
+
+        h2:hover {
+          transform: scale(1.05);
+        }
+      </style>
+    `);
+  </script>
+</body>
+</html>

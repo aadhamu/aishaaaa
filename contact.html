@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Aisha</title>
+</head>
+<body style="margin: 0; font-family: 'Arial', sans-serif; background-color: black; color: white;">
+
+  <!-- Contact Section -->
+  <section style="padding: 50px 20px; background: linear-gradient(to bottom, rgba(255, 0, 102, 0.2), rgba(0, 0, 0, 0.8)); min-height: 90vh;">
+    <div style="text-align: center; margin-bottom: 40px;">
+      <h2 style="font-size: 36px; color: #ff66b2; text-shadow: 0 0 15px rgba(255, 102, 178, 0.8);">
+        Get in Touch
+      </h2>
+      <p style="font-size: 18px; color: rgba(255, 255, 255, 0.8);">
+        Have something to share? Feel free to reach out.
+      </p>
+    </div>
+
+    <!-- Contact Form -->
+    <form style="max-width: 600px; margin: 0 auto; background: rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);"
+          onsubmit="return sendEmail()">
+      <div style="margin-bottom: 20px;">
+        <label for="name" style="display: block; margin-bottom: 5px; color: #ffccff;">Your Name</label>
+        <input type="text" id="name" name="name" required 
+               style="width: 100%; padding: 10px; border: none; border-radius: 5px; background: rgba(255, 255, 255, 0.2); color: white;">
+      </div>
+      <div style="margin-bottom: 20px;">
+        <label for="email" style="display: block; margin-bottom: 5px; color: #ffccff;">Your Email</label>
+        <input type="email" id="email" name="email" required 
+               style="width: 100%; padding: 10px; border: none; border-radius: 5px; background: rgba(255, 255, 255, 0.2); color: white;">
+      </div>
+      <div style="margin-bottom: 20px;">
+        <label for="message" style="display: block; margin-bottom: 5px; color: #ffccff;">Your Message</label>
+        <textarea id="message" name="message" rows="5" required 
+                  style="width: 100%; padding: 10px; border: none; border-radius: 5px; background: rgba(255, 255, 255, 0.2); color: white;"></textarea>
+      </div>
+      <div style="text-align: center;">
+        <button type="submit" 
+                style="background-color: #ff66b2; color: black; font-size: 16px; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; transition: all 0.3s ease;">
+          Send Message
+        </button>
+      </div>
+    </form>
+  </section>
+
+  <!-- Back to Home Button -->
+  <div style="text-align: center; padding: 10px 0; background: rgba(255, 0, 102, 0.2); position: sticky; bottom: 0;">
+    <button onclick="goBack()" 
+            style="background-color: #ff66b2; color: black; font-size: 16px; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; transition: all 0.3s ease;">
+      Back to Home
+    </button>
+  </div>
+
+  <!-- Inline JavaScript -->
+  <script>
+    // Back to Home Function
+    function goBack() {
+      window.location.href = "index.html"; // Update this path if needed
+    }
+
+    // Send Email Function
+    function sendEmail() {
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const message = document.getElementById("message").value;
+
+      // Format the mailto link
+      const mailtoLink = `mailto:balaaadhamu45@gmail.com?subject=Message from ${encodeURIComponent(name)}&body=From: ${encodeURIComponent(name)} (${encodeURIComponent(email)})%0A%0A${encodeURIComponent(message)}`;
+
+      // Open the email client
+      window.location.href = mailtoLink;
+      return false; // Prevent default form submission
+    }
+  </script>
+</body>
+</html>

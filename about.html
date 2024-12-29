@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Aisha</title>
+</head>
+<body style="margin: 0; font-family: Arial, sans-serif; background-color: black; color: white;">
+
+  <!-- About Section -->
+  <section style="padding: 50px 20px; background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), rgba(255, 255, 255, 0.1));">
+    <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+      <h2 style="font-family: 'Dancing Script', cursive; font-size: 36px; color: #ffcc00; margin-bottom: 20px; animation: fadeIn 1.5s;">
+        About Aisha
+      </h2>
+      <p style="font-size: 18px; font-weight: bold; color: rgba(255, 255, 255, 0.8); margin-bottom: 30px; animation: slideIn 1.5s;">
+        Hardworking. Ambitious. Compassionate.
+      </p>
+      <div style="text-align: left; padding: 20px; background: rgba(255, 255, 255, 0.1); border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); animation: fadeInUp 2s;">
+        <p style="font-size: 16px; line-height: 1.8; margin: 0; color: rgba(255, 255, 255, 0.9);">
+          Hello, Aisha! This section is a heartfelt dedication to your journey in law and life. Your commitment to excellence, your passion for making a difference, and your kind heart inspire everyone around you.
+          <br><br>
+          You are ambitious and hardworking, with dreams as vast as the horizon. This website is just a small step in celebrating all that you are and everything you aspire to be.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Back to Home Button -->
+  <div style="text-align: center; padding: 30px 0;">
+    <button onclick="goBack()" 
+            style="background-color: #ffcc00; color: black; font-size: 16px; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; transition: all 0.3s ease;">
+      Back to Home
+    </button>
+  </div>
+
+  <!-- Inline JavaScript -->
+  <script>
+    // Back to Home Function
+    function goBack() {
+      window.location.href = "index.html"; // Update this path if needed
+    }
+
+    // Animation Keyframes
+    document.head.insertAdjacentHTML("beforeend", `
+      <style>
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+          from { transform: translateX(-50px); opacity: 0; }
+          to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+          from { transform: translateY(20px); opacity: 0; }
+          to { transform: translateY(0); opacity: 1; }
+        }
+
+        button:hover {
+          background-color: white;
+          color: #ffcc00;
+        }
+      </style>
+    `);
+  </script>
+</body>
+</html>
