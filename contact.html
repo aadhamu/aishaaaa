@@ -14,23 +14,13 @@
         Get in Touch
       </h2>
       <p style="font-size: 18px; color: rgba(255, 255, 255, 0.8);">
-        Have something to share? Feel free to reach out.
+        Hi Aisha, feel free to share your thoughts or message anytime!
       </p>
     </div>
 
     <!-- Contact Form -->
     <form style="max-width: 600px; margin: 0 auto; background: rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);"
           onsubmit="return sendEmail()">
-      <div style="margin-bottom: 20px;">
-        <label for="name" style="display: block; margin-bottom: 5px; color: #ffccff;">Your Name</label>
-        <input type="text" id="name" name="name" required 
-               style="width: 100%; padding: 10px; border: none; border-radius: 5px; background: rgba(255, 255, 255, 0.2); color: white;">
-      </div>
-      <div style="margin-bottom: 20px;">
-        <label for="email" style="display: block; margin-bottom: 5px; color: #ffccff;">Your Email</label>
-        <input type="email" id="email" name="email" required 
-               style="width: 100%; padding: 10px; border: none; border-radius: 5px; background: rgba(255, 255, 255, 0.2); color: white;">
-      </div>
       <div style="margin-bottom: 20px;">
         <label for="message" style="display: block; margin-bottom: 5px; color: #ffccff;">Your Message</label>
         <textarea id="message" name="message" rows="5" required 
@@ -62,12 +52,10 @@
 
     // Send Email Function
     function sendEmail() {
-      const name = document.getElementById("name").value;
-      const email = document.getElementById("email").value;
       const message = document.getElementById("message").value;
 
       // Format the mailto link
-      const mailtoLink = `mailto:balaaadhamu45@gmail.com?subject=Message from ${encodeURIComponent(name)}&body=From: ${encodeURIComponent(name)} (${encodeURIComponent(email)})%0A%0A${encodeURIComponent(message)}`;
+      const mailtoLink = `mailto:balaaadhamu45@gmail.com?subject=Message from Aisha&body=${encodeURIComponent(message)}`;
 
       // Open the email client
       window.location.href = mailtoLink;
